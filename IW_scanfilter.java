@@ -46,7 +46,10 @@ public class IW_scanfilter {
 	
 	List<String> l = null;
 	try { l = (run(argv1));}
-	catch (Exception e){}
+	catch (Exception e){
+	    System.out.println(e);
+	    System.out.println("Could not fetch ip...");
+	}
 	print_list_2(l);
 	
 	String match = "default via ";
