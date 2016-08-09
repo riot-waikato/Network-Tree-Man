@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.*;
 import java.lang.*;
 
@@ -47,13 +46,15 @@ public class IW_select {
 	    System.out.println(ip);
 	    
 	    /* then check if this AP has a connection to the target device */
-	    if(Server_Test_Auth.checkCon(ip, 2158, 5000)) {
+	    /*if(Server_Test_Auth.checkCon(ip, 2158, 5000)) {
 		System.out.println(pairs.get(i)[1] + " responded to auth request with valid token - maintaining connection");
-		/*if it does, then we exit this loop - we should have a fixed connection state */
+		//if it does, then we exit this loop - we should have a fixed connection state 
 		break;
 	    }
-	    else
-		System.out.println(pairs.get(i)[1] + " did not respond to auth request with valid token");
+	    else*/
+	    Servman.Run(ip, true);
+	    System.out.println(pairs.get(i)[1] + " did not respond to auth request with valid token");
 	}
     }
 }
+
