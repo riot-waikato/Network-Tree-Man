@@ -10,6 +10,8 @@ public class IW_select {
 	    return;
 	}
 	IW_scanfilter.dev = args[0]; //wlan device
+	
+	while(true) {
 	List<String[]> pairs = IW_scanfilter.scan_wlan(new String[] {"-v"}); // -v: print our output
 
 	if(pairs == null) //we failed to scan or find any devices at all
@@ -54,6 +56,7 @@ public class IW_select {
 	    else*/
 	    Servman.Run(ip, true);
 	    System.out.println(pairs.get(i)[1] + " did not respond to auth request with valid token");
+	}
 	}
     }
 }

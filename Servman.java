@@ -25,6 +25,7 @@ class Servman extends Thread {
     private static ServHost.HostThreadManager htm = new ServHost.HostThreadManager();
     private static Thread t;
     private static Thread SubServManThread;
+    private static boolean flag = true;
 
     public static void main(String[] args) {
 	addr = args[0];
@@ -53,6 +54,10 @@ class Servman extends Thread {
 		}
 	} catch (Exception e) { System.err.println(e); }
     	System.out.println("Subserver-Manager initialized: " + subserv.init);
+
+	while(CONNECTED && subserv.init) {
+		}
+	System.out.println("!flag");
     }
 
     public static void Run(String ip, boolean DEBUG_OUTPUT) {
@@ -84,18 +89,21 @@ class Servman extends Thread {
 		    }   
 		    catch (Exception e) { e.printStackTrace();}
 		    System.out.println("End thread_3");
+	            flag = false;
 		    return;
 		}
 		else { //we're connected
 		    
 		    try { CONNECTED = TCPC.check(addr, user_port); } //check connection
 
-		    catch (Exception e) {e.printStackTrace(); }
+		    catch (Exception e) {e.printStackTrace(); CONNECTED = false;}
 		    		    System.out.println("Connected: " + CONNECTED);
-		    CON_UPDATE();
+		    //CON_UPDATE();
 		}
 		t_sleep(3000);
-	    }	    
+	    }
+	//set flag
+	flag = false;	    
 	}
 	
 	private void t_sleep(int t) {
