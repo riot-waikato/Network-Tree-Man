@@ -1,4 +1,5 @@
-# Network-Tree-Man
+# Network-Tree-Manager
+
 Setup for managing dynamically configured tree-based network for rugged internet of things application
 
 TODO:
