@@ -107,7 +107,7 @@ class Servman extends Thread {
 	}
 	
 	private void t_sleep(int t) {
-	    try { sleep(t) ; } catch (Exception e) {}
+	    try { sleep(t) ; } catch (Exception e) {} //sleep for k ms without raising exception
 	}
 	public boolean init() {
 	    //check if the correct server exists
